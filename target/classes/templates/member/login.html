@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 - Smart Edu</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="user-type">
+            <label><input type="radio" name="role" value="student"> 수강생</label>
+            <label><input type="radio" name="role" value="teacher"> 강사</label>
+        </div>
+
+        <div class="login-box">
+            <input type="email" id="email" placeholder="이메일">
+            <input type="password" id="password" placeholder="비밀번호">
+            <button id="loginBtn">로그인</button>
+        </div>
+
+        <button class="register-btn" onclick="location.href='register-select.html'">가입하기</button>
+    </div>
+
+    <script th:src="@{/js/login.js}"></script>
+</body>
+</html>
