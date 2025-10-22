@@ -41,10 +41,10 @@ public class InstructorRegistCommand {
         return member;
     }
 
-    public InstructorVO toInstructorVO(Integer member_id) {
+    public InstructorVO toInstructorVO(Integer memberId) {
         return InstructorVO.builder()
-                .instructor_id(member_id)
-                .pending_status(PendingStatus.PENDING)
+                .instructorId(memberId)
+                .pendingStatus(PendingStatus.PENDING)
                 .build();
     }
 }

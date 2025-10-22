@@ -14,9 +14,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class InstructorVO {
-    private Integer instructor_id; // 강사번호
+    private Integer instructorId; // 강사번호
     private String resume; // 이력서
-    private PendingStatus pending_status; // 승인상태
+    private PendingStatus pendingStatus; // 승인상태
     
 
 }

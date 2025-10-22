@@ -15,8 +15,12 @@ public interface MemberDAO {
     void withdrawMember(int memberId) throws SQLException;
     // 회원번호로 회원 조회
     MemberVO selectMemberByEmail (String email) throws SQLException;
+    // 회원 등록
+    void insertStudent(int memberId) throws SQLException;
     // 강사 등록
     void insertInstructor(InstructorVO instructor) throws SQLException;
+    // 강사 조회
+    InstructorVO selectInstructorById(int memberId) throws SQLException;
 
 
 

@@ -42,7 +42,7 @@ public class MemberController {
         return url;
     }
 
-    @GetMapping("/emailCheck")
+    @GetMapping(value = "/emailCheck", produces = "text/plain;charset=UTF-8")
     @ResponseBody
     public String emailCheck(String email) throws Exception {
         String message = "duplicated";
@@ -63,6 +63,8 @@ public class MemberController {
         MemberVO member = regcommand.toMemberVO();
 
         memberService.regist(member);
+        memberService.registStudent(member.getMemberId());
+
 
         return url;
     }
@@ -89,7 +91,7 @@ public class MemberController {
         if (resumeFile != null && !resumeFile.isEmpty()) {
             resumeFileName = saveResume("",resumeFile);
 
-            InstructorVO instructor = registCommand.toInstructorVO(member.getMember_id());
+            InstructorVO instructor = registCommand.toInstructorVO(member.getMemberId());
             instructor.setResume(resumeFileName);
             memberService.registInstructor(instructor);
 
@@ -129,4 +131,6 @@ public class MemberController {
         return fileName;
 
     }
+
+
 }

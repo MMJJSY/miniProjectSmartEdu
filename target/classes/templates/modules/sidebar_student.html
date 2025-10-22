@@ -1,0 +1,19 @@
+  <!-- 사이드바 -->
+
+    <link rel="stylesheet"  href=".../static/css/student_mypage.css" th:href="@{/css/student_mypage.css}" />
+    <aside class="mypage-sidebar">
+      <nav class="sidebar-menu">
+        <h3>강좌</h3>
+        <ul>
+          <li><a href="file:///C:/dw/project/smartedu/src/main/resources/templates/student_class.html">내 강좌</a></li>
+        </ul>
+
+        <h3>마이페이지</h3>
+        <ul>
+          <li><a href="#">찜 목록</a></li>
+          <li><a href="#">결제 내역</a></li>
+          <li><a th:href="@{/mypage/info}">내 정보</a></li>
+          <li><a href="#">비밀번호 변경</a></li>
+        </ul>
+      </nav>
+    </aside>

@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 public enum PendingStatus {
     PENDING("대기"),
     APPROVED("승인됨"),
-    AREJECTED("거절됨");
+    REJECTED("거절됨");
 
     private final String pendingStatusName;
 

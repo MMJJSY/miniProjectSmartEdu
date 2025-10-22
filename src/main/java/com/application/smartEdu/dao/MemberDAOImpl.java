@@ -2,6 +2,7 @@ package com.application.smartEdu.dao;
 
 import java.sql.SQLException;
 
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,8 +29,8 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public void withdrawMember(int member_id) throws SQLException {
-        sqlSession.update("Member-Mapper.withdrawMember", member_id);
+    public void withdrawMember(int memberId) throws SQLException {
+        sqlSession.update("Member-Mapper.withdrawMember", memberId);
 
     }
 
@@ -43,4 +44,15 @@ public class MemberDAOImpl implements MemberDAO {
         sqlSession.insert("Member-Mapper.insertInstructor", instructor);
         
     }
+
+    @Override
+    public InstructorVO selectInstructorById(int memberId) throws SQLException {
+        return sqlSession.selectOne("Member-Mapper.selectInstructorById", memberId);
+    }
+
+    @Override
+    public void insertStudent(int memberId) throws SQLException {
+        sqlSession.insert("Member-Mapper.insertStudent", memberId);   
+    }
+    
 }

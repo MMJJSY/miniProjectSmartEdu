@@ -3,32 +3,47 @@
 <mapper namespace="Member-Mapper">
 
 <insert id="insertMember" parameterType="member" 
-useGeneratedKeys="true" keyProperty="member_id">
+useGeneratedKeys="true" keyProperty="memberId">
     insert into members(email, pwd, name, phone, role, status)
     values(#{email}, #{pwd}, #{name}, #{phone}, #{role}, #{status}) 
 </insert>
 
-<insert id="insertInstructor" parameterType="instructor"> 
-    insert into instructors (instructor_id, resume, pending_status)
-    values (#{instructor_id}, #{resume}, #{pending_status} ) 
+<!-- 수강생 추가 -->
+<insert id="insertStudent" parameterType="int"> 
+    insert into students (student_id) 
+    values (#{memberId}) 
 </insert>
 
+<!-- 강사 추가 -->
+<insert id="insertInstructor" parameterType="instructor"> 
+    insert into instructors (instructor_id, resume, pending_status)
+    values (#{instructorId}, #{resume}, #{pendingStatus} ) 
+</insert>
+
+<!-- 비밀번호 수정 -->
 <update id="updateMember" parameterType="member">
     update members 
     set pwd=#{pwd}
-    where member_id = #{member_id}
+    where member_id = #{memberId}
 </update>
 
+<!-- 회원탈퇴 -->
 <update id="withdrawMember" parameterType="member">
      update members 
      set status = 'WITHDRAW' 
-     WHERE member_id = #{member_id} 
+     WHERE member_id = #{memberId} 
     </update>
 
+<!-- 회원 조회 -->
 <select id="selectMemberByEmail" resultType="member" parameterType="str">
     select * 
     from members
     where email = #{email}
 </select>
 
+<!-- 강사 조회 -->
+<select id="selectInstructorById" resultType="instructor"  parameterType="int"> 
+    select * 
+    from instructors 
+    where instructor_id = #{instructorId} </select>
 </mapper>
