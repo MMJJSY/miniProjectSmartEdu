@@ -72,4 +72,15 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# 빌드 결과물 무시
+/target/
+
+# IDE 설정 폴더 무시
+/.idea/
+/.vscode/
+
+# OS 관련 파일 무시
+.DS_Store
+Thumbs.db
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,java
